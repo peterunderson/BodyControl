@@ -14,8 +14,8 @@ namespace BodyControlApp.Pages
 {
     class PageManager
     {
-        private List<IPageController> _pageControllers;
-        private AppShell _appShell;
+        private readonly List<IPageController> _pageControllers;
+        private readonly AppShell _appShell;
 
         public PageManager(AppShell appShell)
         {
@@ -24,54 +24,61 @@ namespace BodyControlApp.Pages
         }
 
 
-        Dictionary<int, ShellSection> shellItems = new Dictionary<int, ShellSection>();
+        readonly Dictionary<int, ShellSection> _shellItems = new Dictionary<int, ShellSection>();
         private void AddFlyoutItem(ContentPage page, PageConfigAttribute flyoutItemAttribute)
         {
-            ShellSection shell_section = new ShellSection
+            ShellSection shellSection = new ShellSection
             {
                 Title = flyoutItemAttribute.FlyoutName,
                 Icon = flyoutItemAttribute.FlyoutIcon,
             };
-            shell_section.Items.Add(new ShellContent() { Content = page });
-            shellItems.Add(flyoutItemAttribute.FlyoutItemPosition, shell_section);
+            shellSection.Items.Add(new ShellContent() { Content = page });
+            _shellItems.Add(flyoutItemAttribute.FlyoutItemPosition, shellSection);
         }
 
         public void InitializePageSystem()
         {
             var assemblyTypes = Assembly.GetExecutingAssembly().GetTypes();
-            var pageControllers = assemblyTypes.Where(c => c.Name.Contains("Controller") && c.GetInterfaces().Any(i => i == typeof(IPageController)));
+            var pageControllers = assemblyTypes.Where(c => c.Name.Contains("Controller") 
+                                                           && c.GetInterfaces().Any(i => i == typeof(IPageController))).ToList();
 
             for (int i = 0; i < pageControllers.Count(); i++)
             {
-                ContentPage currPage;
-                Type page = assemblyTypes.FirstOrDefault(p => p.Namespace == pageControllers.ElementAt(i).Namespace && p.Name.Contains("Page") && p.BaseType == typeof(BasePage));
+                Type page = assemblyTypes.FirstOrDefault(p => p.Namespace == pageControllers.ElementAt(i).Namespace 
+                                                              && p.Name.Contains("Page") && p.BaseType == typeof(BasePage));
                 PageConfigAttribute attribute = pageControllers.ElementAt(i).GetCustomAttribute<PageConfigAttribute>();
                 if (attribute == null)
                     attribute = new PageConfigAttribute("","","",0);
-                Type viewModelType = assemblyTypes.FirstOrDefault(p => p.Namespace == pageControllers.ElementAt(i).Namespace && p.Name.Contains("ViewModel") && p.BaseType == typeof(BasicViewModel));
+                Type viewModelType = assemblyTypes.FirstOrDefault(p => p.Namespace == pageControllers.ElementAt(i).Namespace
+                                                                       && p.Name.Contains("ViewModel") && p.BaseType == typeof(BasicViewModel));
                 if (page != null && viewModelType != null)
                 {
-                    currPage = (BasePage)Activator.CreateInstance(page);
-                    currPage.Appearing += CurrPage_Appearing;
-                    var viewModel = (BasicViewModel)Activator.CreateInstance(viewModelType);
-                    viewModel.NavBarImage = attribute.NavBarImage;
-                    viewModel.NavBarText = attribute.FlyoutName;
-                    currPage.BindingContext = viewModel;
-                    try
-                    {
-                        var controller =
-                            (IPageController) Activator.CreateInstance(pageControllers.ElementAt(i), currPage);
-                        _pageControllers.Add(controller);
-                        controller.ExecuteInitializeViewModel(viewModel);
-                        AddFlyoutItem(currPage, attribute);
-                    }
-                    catch (Exception)
-                    {
-                        Debug.WriteLine("Fail to add Page Controller");
-                    }
+                    Initialize(page, viewModelType, attribute, pageControllers, i);
                 }
             }
             AddFlyoutItemsToShell();           
+        }
+
+        private void Initialize(Type page, Type viewModelType, PageConfigAttribute attribute, List<Type> pageControllers, int index)
+        {
+            ContentPage currPage = (BasePage) Activator.CreateInstance(page);
+            currPage.Appearing += CurrPage_Appearing;
+            var viewModel = (BasicViewModel) Activator.CreateInstance(viewModelType);
+            viewModel.NavBarImage = attribute.NavBarImage;
+            viewModel.NavBarText = attribute.FlyoutName;
+            currPage.BindingContext = viewModel;
+            try
+            {
+                var controller =
+                    (IPageController) Activator.CreateInstance(pageControllers.ElementAt(index), currPage);
+                _pageControllers.Add(controller);
+                controller.ExecuteInitializeViewModel(viewModel);
+                AddFlyoutItem(currPage, attribute);
+            }
+            catch (Exception)
+            {
+                Debug.WriteLine("Fail to add Page Controller");
+            }
         }
 
         private void CurrPage_Appearing(object sender, EventArgs e)
@@ -86,7 +93,7 @@ namespace BodyControlApp.Pages
 
         private void AddFlyoutItemsToShell()
         {
-            foreach (var item in shellItems.OrderBy(x => x.Key))
+            foreach (var item in _shellItems.OrderBy(x => x.Key))
             {
                 _appShell.Items.Add(item.Value);
             }
