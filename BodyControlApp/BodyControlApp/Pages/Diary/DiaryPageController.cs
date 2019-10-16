@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace BodyControlApp.Pages.Diary
 {
-    [FlyoutItem("Tagebuch", "Book.png", 2)]
+    [PageConfig("Tagebuch", "Book.png","BookWhite.png", 2)]
     class DiaryPageController : IPageController
     {
         public DiaryPageController(DiaryPage diaryPage,DiaryPageViewModel diaryPageViewModel)

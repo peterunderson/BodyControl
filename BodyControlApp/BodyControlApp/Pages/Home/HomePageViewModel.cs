@@ -7,7 +7,7 @@ using Xamarin.Forms;
 
 namespace BodyControlApp.Pages.Home
 {
-    class HomePageViewModel : INotifyPropertyChanged
+    class HomePageViewModel : BasicViewModel, INotifyPropertyChanged
     {
         private ImageSource _penImageSource;
         public ImageSource PenImageSource

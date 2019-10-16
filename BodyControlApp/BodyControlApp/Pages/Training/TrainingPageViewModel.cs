@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BodyControlApp.Pages.Training
 {
-    class TrainingPageViewModel
+    class TrainingPageViewModel :BasicViewModel
     {
     }
 }

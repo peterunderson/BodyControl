@@ -10,7 +10,7 @@ using Xamarin.Forms.Xaml;
 namespace BodyControlApp.Pages.Diary
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class DiaryPage : ContentPage
+    public partial class DiaryPage : BasePage
     {
         public DiaryPage()
         {

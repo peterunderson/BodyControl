@@ -25,7 +25,7 @@ namespace BodyControlApp.Pages
 
 
         Dictionary<int, ShellSection> shellItems = new Dictionary<int, ShellSection>();
-        private void AddFlyoutItem(ContentPage page, FlyoutItemAttribute flyoutItemAttribute)
+        private void AddFlyoutItem(ContentPage page, PageConfigAttribute flyoutItemAttribute)
         {
             ShellSection shell_section = new ShellSection
             {
@@ -44,14 +44,18 @@ namespace BodyControlApp.Pages
             for (int i = 0; i < pageControllers.Count(); i++)
             {
                 ContentPage currPage;
-                Type page = assemblyTypes.FirstOrDefault(p => p.Namespace == pageControllers.ElementAt(i).Namespace && p.Name.Contains("Page") && p.BaseType == typeof(ContentPage));
-                FlyoutItemAttribute attribute = pageControllers.ElementAt(i).GetCustomAttribute<FlyoutItemAttribute>();
-                Type viewModelType = assemblyTypes.FirstOrDefault(p => p.Namespace == pageControllers.ElementAt(i).Namespace && p.Name.Contains("ViewModel"));
-                if (attribute != null && page != null && viewModelType != null)
+                Type page = assemblyTypes.FirstOrDefault(p => p.Namespace == pageControllers.ElementAt(i).Namespace && p.Name.Contains("Page") && p.BaseType == typeof(BasePage));
+                PageConfigAttribute attribute = pageControllers.ElementAt(i).GetCustomAttribute<PageConfigAttribute>();
+                if (attribute == null)
+                    attribute = new PageConfigAttribute("","","",0);
+                Type viewModelType = assemblyTypes.FirstOrDefault(p => p.Namespace == pageControllers.ElementAt(i).Namespace && p.Name.Contains("ViewModel") && p.BaseType == typeof(BasicViewModel));
+                if (page != null && viewModelType != null)
                 {
-                    currPage = (ContentPage)Activator.CreateInstance(page);
+                    currPage = (BasePage)Activator.CreateInstance(page);
                     currPage.Appearing += CurrPage_Appearing;
-                    var viewModel = Activator.CreateInstance(viewModelType);
+                    var viewModel = (BasicViewModel)Activator.CreateInstance(viewModelType);
+                    viewModel.NavBarImage = attribute.NavBarImage;
+                    viewModel.NavBarText = attribute.FlyoutName;
                     currPage.BindingContext = viewModel;
                     try
                     {                        

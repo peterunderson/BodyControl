@@ -10,7 +10,7 @@ using Xamarin.Forms.Xaml;
 namespace BodyControlApp.Pages.Training
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class TrainingPage : ContentPage
+    public partial class TrainingPage :BasePage
     {
         public TrainingPage()
         {

@@ -10,7 +10,7 @@ using Xamarin.Forms.Xaml;
 namespace BodyControlApp.Pages.Chart
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ChartPage :ContentPage
+    public partial class ChartPage :BasePage
     {
         public ChartPage()
         {

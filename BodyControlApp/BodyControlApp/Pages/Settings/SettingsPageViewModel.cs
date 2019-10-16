@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BodyControlApp.Pages.Settings
 {
-    class SettingsPageViewModel : INotifyPropertyChanged
+    class SettingsPageViewModel : BasicViewModel, INotifyPropertyChanged
     {       
         public bool Vibrate
         {

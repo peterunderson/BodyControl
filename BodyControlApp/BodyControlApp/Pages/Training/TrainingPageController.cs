@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace BodyControlApp.Pages.Training
 {
-    [FlyoutItem("Training", "Dumbell.png", 3)]
+    [PageConfig("Training", "Dumbell.png","DumbellWhite.png", 3)]
     class TrainingPageController : IPageController
     {
         public TrainingPageController(TrainingPage trainingPage,TrainingPageViewModel trainingPageViewModel)

@@ -11,7 +11,7 @@ using Xamarin.Forms.Xaml;
 namespace BodyControlApp.Pages.Home
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class HomePage : ContentPage
+    public partial class HomePage : BasePage
     {
         public event EventHandler ContentViewTapped;
         public HomePage()
@@ -20,7 +20,7 @@ namespace BodyControlApp.Pages.Home
             TapGestureRecognizer tapGestureRecognizer = new TapGestureRecognizer();
             tapGestureRecognizer.Tapped += (o, e) =>  OnContentViewTapped(); 
             contentView.GestureRecognizers.Add(tapGestureRecognizer);
-            this.Disappearing += (o, e) => OnContentViewTapped();           
+            base.Disappearing += (o, e) => OnContentViewTapped();           
             
         }        
 

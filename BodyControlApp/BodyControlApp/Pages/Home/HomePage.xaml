@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<pages:BasePage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -8,15 +8,8 @@
              xmlns:root="clr-namespace:BodyControlApp"
              xmlns:local="clr-namespace:BodyControlApp.Pages.Home"
              xmlns:svg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             xmlns:pages="clr-namespace:BodyControlApp.Pages;assembly=BodyControlApp"
              x:DataType="local:HomePageViewModel">
-    
-    <Shell.TitleView>
-        <StackLayout Orientation="Horizontal" HeightRequest="20" HorizontalOptions="StartAndExpand">
-            <Image HeightRequest="30" WidthRequest="30" Source="HomeWhite.png" VerticalOptions="Center"></Image>
-            <Label Text="Home"  FontSize="Large" TextColor="White" VerticalOptions="Center"></Label>
-        </StackLayout>
-    </Shell.TitleView>
-
     <ContentPage.Content>
         <AbsoluteLayout Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
             <Grid AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" >
@@ -55,4 +48,4 @@
 
     </ContentPage.Content>
 
-</ContentPage>
+</pages:BasePage>

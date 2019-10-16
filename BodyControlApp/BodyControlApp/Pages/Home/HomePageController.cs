@@ -10,7 +10,7 @@ using BodyControlApp.MVVM;
 
 namespace BodyControlApp.Pages.Home
 {
-    [FlyoutItem("Home","Home.png",0)]
+    [PageConfig("Home","Home.png","HomeWhite.png",0)]
     class HomePageController:IPageController
     {
         private readonly HomePage _homePage;

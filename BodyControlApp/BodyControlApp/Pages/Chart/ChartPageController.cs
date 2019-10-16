@@ -9,7 +9,7 @@ using Xamarin.Forms;
 
 namespace BodyControlApp.Pages.Chart
 {
-    [FlyoutItem("Chart", "Chart.png", 1)]
+    [PageConfig("Chart", "Chart.png","ChartWhite.png", 1)]
     class ChartPageController : IPageController
     {
         private readonly ChartPage _chartPage;
