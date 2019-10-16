@@ -7,7 +7,7 @@ using Xamarin.Forms;
 
 namespace BodyControlApp.Pages.Home
 {
-    class HomePageViewModel : BasicViewModel, INotifyPropertyChanged
+    class HomePageViewModel : BasicViewModel
     {
         private ImageSource _penImageSource;
         public ImageSource PenImageSource
@@ -16,7 +16,7 @@ namespace BodyControlApp.Pages.Home
             set
             {
                 _penImageSource = value;
-                OnPropertyChanged(nameof(PenImageSource));
+                OnPropertyChanged();
             }
         }
 
@@ -27,7 +27,7 @@ namespace BodyControlApp.Pages.Home
             set
             {
                 _contentViewIsVisible = value;
-                OnPropertyChanged(nameof(ContentViewIsVisible));
+                OnPropertyChanged();
             }
         }
 
@@ -38,15 +38,9 @@ namespace BodyControlApp.Pages.Home
             set
             {
                 _buttonPenCommand = value;
-                OnPropertyChanged(nameof(ButtonPenCommand));
+                OnPropertyChanged();
             }
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+       
     }
 }
