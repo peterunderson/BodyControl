@@ -58,8 +58,11 @@ namespace BodyControlApp.Pages
                     viewModel.NavBarText = attribute.FlyoutName;
                     currPage.BindingContext = viewModel;
                     try
-                    {                        
-                        _pageControllers.Add((IPageController)Activator.CreateInstance(pageControllers.ElementAt(i), currPage, viewModel));
+                    {
+                        var controller =
+                            (IPageController) Activator.CreateInstance(pageControllers.ElementAt(i), currPage);
+                        _pageControllers.Add(controller);
+                        controller.ExecuteInitializeViewModel(viewModel);
                         AddFlyoutItem(currPage, attribute);
                     }
                     catch (Exception)

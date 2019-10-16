@@ -13,20 +13,14 @@ namespace BodyControlApp.Pages.Home
     [PageConfig("Home","Home.png","HomeWhite.png",0)]
     class HomePageController:IPageController
     {
-        private readonly HomePage _homePage;
-        private readonly HomePageViewModel _homePageViewModel;
+        private  HomePage _homePage;
+        private  HomePageViewModel _homePageViewModel;
 
-        public HomePageController(HomePage _homePage,HomePageViewModel viewModel)
+        public HomePageController(HomePage _homePage)
         {
             this._homePage = _homePage;
             _homePage.ContentViewTapped += _homePage_ContentViewTapped;
-            _homePageViewModel = viewModel;
-            _homePageViewModel.ButtonPenCommand = new DelegateCommand(ButtonPenClicked);
-            _homePageViewModel.PenImageSource = ImageSource.FromFile("PenSmall.png");
-            _homePageViewModel.ContentViewIsVisible = false;
         }
-
-
 
         private void _homePage_ContentViewTapped(object sender, EventArgs e)
         {
@@ -44,6 +38,14 @@ namespace BodyControlApp.Pages.Home
         {
             
             return true;
+        }
+
+        public void ExecuteInitializeViewModel(BasicViewModel viewModel)
+        {
+            _homePageViewModel = viewModel as HomePageViewModel;
+            _homePageViewModel.ButtonPenCommand = new DelegateCommand(ButtonPenClicked);
+            _homePageViewModel.PenImageSource = ImageSource.FromFile("PenSmall.png");
+            _homePageViewModel.ContentViewIsVisible = false;
         }
     }
 }

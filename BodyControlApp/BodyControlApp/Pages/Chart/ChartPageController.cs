@@ -14,7 +14,7 @@ namespace BodyControlApp.Pages.Chart
     {
         private readonly ChartPage _chartPage;
 
-        public ChartPageController(ChartPage chartPage, ChartPageViewModel chartPageViewModel)
+        public ChartPageController(ChartPage chartPage)
         {
             _chartPage = chartPage;
             Xamarin.Essentials.DeviceDisplay.MainDisplayInfoChanged += DeviceDisplay_MainDisplayInfoChanged;
@@ -24,6 +24,11 @@ namespace BodyControlApp.Pages.Chart
         {
             await Task.Delay(10);
             return true;
+        }
+
+        public void ExecuteInitializeViewModel(BasicViewModel viewModel)
+        {
+            
         }
 
         private void DeviceDisplay_MainDisplayInfoChanged(object sender, Xamarin.Essentials.DisplayInfoChangedEventArgs e)

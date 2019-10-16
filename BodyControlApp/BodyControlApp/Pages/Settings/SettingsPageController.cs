@@ -10,7 +10,7 @@ namespace BodyControlApp.Pages.Settings
     {
         private readonly SettingsPage _settingsPage;
 
-        public SettingsPageController(SettingsPage settingsPage,SettingsPageViewModel settingsPageViewModel)
+        public SettingsPageController(SettingsPage settingsPage)
         {
             this._settingsPage = settingsPage;            
         }
@@ -18,6 +18,11 @@ namespace BodyControlApp.Pages.Settings
         {
             await Task.Delay(10);
             return true;
+        }
+
+        public void ExecuteInitializeViewModel(BasicViewModel viewModel)
+        {
+            
         }
     }
 }
