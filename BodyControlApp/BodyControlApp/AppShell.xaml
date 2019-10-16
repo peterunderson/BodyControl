@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:homePage="clr-namespace:TestApp.Pages.Home"
+             xmlns:chartPage="clr-namespace:TestApp.Pages.Chart"
+             xmlns:settingsPage="clr-namespace:TestApp.Pages.Settings"
+             mc:Ignorable="d"
+             xmlns:local ="clr-namespace:TestApp"
+             x:Class="BodyControlApp.AppShell"
+      >
+    
+    <Shell.FlyoutHeaderTemplate x:DataType="local:MainViewModel">
+        <DataTemplate>
+            <Grid BackgroundColor="Black"
+              HeightRequest="200">
+                <Image Aspect="AspectFill"
+                   Source="{Binding HeaderImageSource}"
+                   Opacity="0.8"/>
+            </Grid>
+        </DataTemplate>
+    </Shell.FlyoutHeaderTemplate>
+    <Shell.ItemTemplate>
+        <DataTemplate>
+            <Grid BackgroundColor="White">
+                <BoxView BackgroundColor="Gray"></BoxView>
+                <Grid BackgroundColor="White"  Margin="0,0,0,4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.2*" />
+                        <ColumnDefinition Width="0.8*" />
+                    </Grid.ColumnDefinitions>
+                    <Image x:Name="image" Source="{Binding Icon}"
+                       Margin="5"
+                       HeightRequest="45"/>
+                    <Label Grid.Column="1"
+                       Text="{Binding Title}"
+                       FontAttributes="Bold"
+                       FontSize="Large"
+                       VerticalTextAlignment="Center"/>
+                </Grid>
+            </Grid>
+           
+        </DataTemplate>
+    </Shell.ItemTemplate>  
+    
+</Shell>

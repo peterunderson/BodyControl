@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29318.209
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BodyControlApp.Android", "BodyControlApp\BodyControlApp.Android\BodyControlApp.Android.csproj", "{68F36396-5A6C-4353-B17A-D7BDB3307BC5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BodyControlApp", "BodyControlApp\BodyControlApp\BodyControlApp.csproj", "{DA56AE99-26CC-4024-8C37-974C5DB80DC2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{68F36396-5A6C-4353-B17A-D7BDB3307BC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68F36396-5A6C-4353-B17A-D7BDB3307BC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68F36396-5A6C-4353-B17A-D7BDB3307BC5}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{68F36396-5A6C-4353-B17A-D7BDB3307BC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68F36396-5A6C-4353-B17A-D7BDB3307BC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68F36396-5A6C-4353-B17A-D7BDB3307BC5}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{DA56AE99-26CC-4024-8C37-974C5DB80DC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA56AE99-26CC-4024-8C37-974C5DB80DC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA56AE99-26CC-4024-8C37-974C5DB80DC2}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{DA56AE99-26CC-4024-8C37-974C5DB80DC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA56AE99-26CC-4024-8C37-974C5DB80DC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA56AE99-26CC-4024-8C37-974C5DB80DC2}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {333E1922-84C7-4ED6-9775-7DFE40110A77}
+	EndGlobalSection
+EndGlobal
