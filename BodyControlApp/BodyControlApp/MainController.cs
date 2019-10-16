@@ -44,10 +44,9 @@ namespace BodyControlApp
             {
                 Xamarin.Essentials.Vibration.Vibrate(200);
             }
+            _appShell.FlyoutIsPresented = true;
             _appShell.FlyoutIsPresented = false;
-            _appShell.ForceLayout();
-            Shell.Current.ForceLayout();
-            Shell.Current.FlyoutIsPresented = false;
+            _appShell.ForceLayout();           
         }
 
         private void InitMainViewModel()
