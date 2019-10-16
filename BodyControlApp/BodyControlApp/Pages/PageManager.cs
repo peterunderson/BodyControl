@@ -69,7 +69,12 @@ namespace BodyControlApp.Pages
 
         private void CurrPage_Appearing(object sender, EventArgs e)
         {
-            //Shell.Current.FlyoutIsPresented = false;
+            if (Shell.Current != null)
+            {
+                Shell.Current.FlyoutIsPresented = true;
+                Shell.Current.FlyoutIsPresented = false;
+                Shell.Current.ForceLayout();
+            }
         }
 
         private void AddFlyoutItemsToShell()
