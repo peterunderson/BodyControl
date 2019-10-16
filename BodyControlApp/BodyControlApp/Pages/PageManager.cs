@@ -49,7 +49,8 @@ namespace BodyControlApp.Pages
                 Type viewModelType = assemblyTypes.FirstOrDefault(p => p.Namespace == pageControllers.ElementAt(i).Namespace && p.Name.Contains("ViewModel"));
                 if (attribute != null && page != null && viewModelType != null)
                 {
-                    currPage = (ContentPage)Activator.CreateInstance(page);             
+                    currPage = (ContentPage)Activator.CreateInstance(page);
+                    currPage.Appearing += CurrPage_Appearing;
                     var viewModel = Activator.CreateInstance(viewModelType);
                     currPage.BindingContext = viewModel;
                     try
@@ -64,6 +65,11 @@ namespace BodyControlApp.Pages
                 }
             }
             AddFlyoutItemsToShell();           
+        }
+
+        private void CurrPage_Appearing(object sender, EventArgs e)
+        {
+            //Shell.Current.FlyoutIsPresented = false;
         }
 
         private void AddFlyoutItemsToShell()
