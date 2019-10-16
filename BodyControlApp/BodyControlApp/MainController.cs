@@ -43,7 +43,8 @@ namespace BodyControlApp
             if (AppSettings.Vibrate)
             {
                 Xamarin.Essentials.Vibration.Vibrate(200);
-            }            
+            }
+            _appShell.FlyoutIsPresented = false;
         }
 
         private void InitMainViewModel()
