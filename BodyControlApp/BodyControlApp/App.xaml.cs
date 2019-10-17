@@ -13,8 +13,8 @@ namespace BodyControlApp
         public App()
         {
             InitializeComponent();
-            var appShell = new AppShell(this);
-            MainPage = appShell;           
+            new ServiceProvider(this);
+            MainPage = new AppShell();           
         }
 
         protected override void OnStart()

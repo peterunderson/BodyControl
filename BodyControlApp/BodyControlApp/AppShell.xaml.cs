@@ -12,12 +12,12 @@ namespace BodyControlApp
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AppShell : Shell
     {       
-        public AppShell(App app)
+        public AppShell()
         {
             var manager = new PageManager(this);
             manager.InitializePageSystem();
             InitializeComponent();
-            var main = new MainController(this,app, manager);
+            new MainController(this, manager);
             // TabIndex = 3;
             //var list =  Items;
             // CurrentItem = list[1];        
