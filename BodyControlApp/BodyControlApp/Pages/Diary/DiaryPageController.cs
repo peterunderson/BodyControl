@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using BodyControlApp.Database;
 
 namespace BodyControlApp.Pages.Diary
 {
@@ -12,7 +13,7 @@ namespace BodyControlApp.Pages.Diary
         {
 
         }
-        public async Task<bool> LoadDataAsync()
+        public async Task<bool> LoadDataAsync(DataBaseController controller)
         {
            return true;
         }

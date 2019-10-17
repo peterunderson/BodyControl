@@ -7,6 +7,7 @@ using Xamarin.Forms;
 using Android.App;
 using Android.Views.InputMethods;
 using BodyControlApp.MVVM;
+using BodyControlApp.Database;
 
 namespace BodyControlApp.Pages.Home
 {
@@ -34,7 +35,7 @@ namespace BodyControlApp.Pages.Home
             
         }
 
-        public async Task<bool> LoadDataAsync()
+        public async Task<bool> LoadDataAsync(DataBaseController controller)
         {
             
             return true;

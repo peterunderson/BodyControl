@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using BodyControlApp.Database;
 
 namespace BodyControlApp.Pages
 {
     interface IPageController
     {
-        Task<bool> LoadDataAsync();
+        Task<bool> LoadDataAsync(DataBaseController controller);
 
         void ExecuteInitializeViewModel(BasicViewModel viewModel);
     }

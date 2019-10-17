@@ -7,6 +7,7 @@ using System.Xml.Linq;
 using FFImageLoading.Forms;
 using FFImageLoading.Svg.Forms;
 using BodyControlApp.Pages.Settings;
+using BodyControlApp.Database;
 
 namespace BodyControlApp
 {
@@ -16,6 +17,7 @@ namespace BodyControlApp
         private readonly App _app;
         private readonly PageManager _pageManager;
         private readonly MainViewModel _mainViewModel;
+        private readonly DataBaseController _databaseController;
 
         public MainController(AppShell appShell, App app,PageManager pageManager)
         {
@@ -36,6 +38,8 @@ namespace BodyControlApp
             {
                 item.Appearing += Item_Appearing;
             }
+
+            _databaseController = new DataBaseController();     
         }
 
         private void Item_Appearing(object sender, EventArgs e)
@@ -71,7 +75,7 @@ namespace BodyControlApp
         {           
             try
             {
-                await _pageManager.FillPages();
+                await _pageManager.FillPages(_databaseController);
             }
             catch (Exception ex)
             {

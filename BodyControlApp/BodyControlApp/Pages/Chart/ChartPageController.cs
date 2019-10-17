@@ -6,6 +6,7 @@ using BodyControlApp;
 using BodyControlApp.Pages;
 using BodyControlApp.Pages.Chart;
 using Xamarin.Forms;
+using BodyControlApp.Database;
 
 namespace BodyControlApp.Pages.Chart
 {
@@ -20,7 +21,7 @@ namespace BodyControlApp.Pages.Chart
             Xamarin.Essentials.DeviceDisplay.MainDisplayInfoChanged += DeviceDisplay_MainDisplayInfoChanged;
         }
 
-        public async Task<bool> LoadDataAsync()
+        public async Task<bool> LoadDataAsync(DataBaseController controller)
         {
             await Task.Delay(10);
             return true;

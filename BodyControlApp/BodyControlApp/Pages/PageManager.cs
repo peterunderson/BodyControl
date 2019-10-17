@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Reflection;
 using System.Linq;
 using System.Diagnostics;
+using BodyControlApp.Database;
+using BodyControlApp.Database.SqLite.Tables;
 
 namespace BodyControlApp.Pages
 {
@@ -16,6 +18,7 @@ namespace BodyControlApp.Pages
     {
         private readonly List<IPageController> _pageControllers;
         private readonly AppShell _appShell;
+        private DataBaseController _dataBaseController;
 
         public PageManager(AppShell appShell)
         {
@@ -100,11 +103,12 @@ namespace BodyControlApp.Pages
             _appShell.CurrentItem = _appShell.Items[0];
         }
 
-        public async Task FillPages()
+        public async Task FillPages(DataBaseController controller)
         {
+            _dataBaseController = controller;            
             foreach (var pageController in _pageControllers)
             {
-                await pageController.LoadDataAsync();
+                await pageController.LoadDataAsync(controller);
             }
         }
     }
