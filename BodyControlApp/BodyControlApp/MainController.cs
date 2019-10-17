@@ -15,16 +15,14 @@ namespace BodyControlApp
     {
         private readonly AppShell _appShell;
         private readonly PageManager _pageManager;
-        private readonly MainViewModel _mainViewModel;
         private readonly DataBaseController _databaseController;
 
         public MainController(AppShell appShell, PageManager pageManager)
         {
             _appShell = appShell;
             _pageManager = pageManager;
-            _mainViewModel = new MainViewModel();         
-            _appShell.BindingContext = _mainViewModel;
-            InitMainViewModel();
+            var mainViewModel = new MainViewModel(){HeaderImageSource = "Header.jpg" };         
+            _appShell.BindingContext = mainViewModel;
             ServiceProvider.Current.OnStart += Provider_OnStart;
 
             foreach (var item in _appShell.Items)
@@ -56,14 +54,6 @@ namespace BodyControlApp
             _appShell.FlyoutIsPresented = true;
             _appShell.FlyoutIsPresented = false;
             _appShell.ForceLayout();           
-        }
-
-        private void InitMainViewModel()
-        {         
-            _mainViewModel.ChartIconSource = "Chart.png";
-            _mainViewModel.HeaderImageSource = "Header.jpg";
-            _mainViewModel.HomeIconSource = "Home.png";
-            _mainViewModel.SettingsIconSource = "Settings2.png";
         }
     }
 }

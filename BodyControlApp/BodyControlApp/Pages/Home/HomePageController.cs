@@ -41,7 +41,7 @@ namespace BodyControlApp.Pages.Home
             return true;
         }
 
-        public void ExecuteInitializeViewModel(BasicViewModel viewModel)
+        public void ExecuteInitializeViewModel(BaseViewModel viewModel)
         {
             _homePageViewModel = viewModel as HomePageViewModel;
             _homePageViewModel.ButtonPenCommand = new DelegateCommand(ButtonPenClicked);

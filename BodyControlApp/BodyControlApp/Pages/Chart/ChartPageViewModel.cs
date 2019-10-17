@@ -7,7 +7,7 @@ using BodyControlApp.Annotations;
 
 namespace BodyControlApp.Pages.Chart
 {
-    class ChartPageViewModel :BasicViewModel
+    class ChartPageViewModel :BaseViewModel
     {
         public ChartPageViewModel()
         {

@@ -10,6 +10,6 @@ namespace BodyControlApp.Pages
     {
         Task<bool> LoadDataAsync(DataBaseController controller);
 
-        void ExecuteInitializeViewModel(BasicViewModel viewModel);
+        void ExecuteInitializeViewModel(BaseViewModel viewModel);
     }
 }

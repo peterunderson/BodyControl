@@ -7,7 +7,7 @@ using Xamarin.Forms;
 
 namespace BodyControlApp.Pages.Home
 {
-    class HomePageViewModel : BasicViewModel
+    class HomePageViewModel : BaseViewModel
     {
         private ImageSource _penImageSource;
         public ImageSource PenImageSource

@@ -53,7 +53,7 @@ namespace BodyControlApp.Pages
                 if (attribute == null)
                     attribute = new PageConfigAttribute("","","",0);
                 Type viewModelType = assemblyTypes.FirstOrDefault(p => p.Namespace == pageControllers.ElementAt(i).Namespace
-                                                                       && p.Name.Contains("ViewModel") && p.BaseType == typeof(BasicViewModel));
+                                                                       && p.Name.Contains("ViewModel") && p.BaseType == typeof(BaseViewModel));
                 if (page != null && viewModelType != null)
                 {
                     Initialize(page, viewModelType, attribute, pageControllers, i);
@@ -66,7 +66,7 @@ namespace BodyControlApp.Pages
         {
             ContentPage currPage = (BasePage) Activator.CreateInstance(page);
             currPage.Appearing += CurrPage_Appearing;
-            var viewModel = (BasicViewModel) Activator.CreateInstance(viewModelType);
+            var viewModel = (BaseViewModel) Activator.CreateInstance(viewModelType);
             viewModel.NavBarImage = attribute.NavBarImage;
             viewModel.NavBarText = attribute.FlyoutName;
             currPage.BindingContext = viewModel;

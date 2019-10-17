@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BodyControlApp.Pages.Diary
 {
-    class DiaryPageViewModel :BasicViewModel
+    class DiaryPageViewModel :BaseViewModel
     {
     }
 }

@@ -7,7 +7,7 @@ using BodyControlApp.Annotations;
 
 namespace BodyControlApp.Pages
 {
-    class BasicViewModel :INotifyPropertyChanged
+    class BaseViewModel :INotifyPropertyChanged
     {
         private string _navBarImage;
 

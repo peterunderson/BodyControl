@@ -27,7 +27,7 @@ namespace BodyControlApp.Pages.Chart
             return true;
         }
 
-        public void ExecuteInitializeViewModel(BasicViewModel viewModel)
+        public void ExecuteInitializeViewModel(BaseViewModel viewModel)
         {
             
         }
