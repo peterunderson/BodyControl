@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-       mc:Ignorable="d"
+             xmlns:pages="clr-namespace:BodyControlApp.Pages;assembly=BodyControlApp"
+             mc:Ignorable="d"
        x:Class="BodyControlApp.AppShell"
      BackgroundColor="{DynamicResource NavigationBarColor}" FlyoutBackgroundColor="{DynamicResource PageBackgroundColor}" >
     <Shell.FlyoutHeaderTemplate x:DataType="local:MainViewModel">
@@ -39,7 +40,8 @@
                     <ColumnDefinition Width="0.2*" />
                     <ColumnDefinition Width="0.8*" />
                 </Grid.ColumnDefinitions>
-                <Image Source="{Binding Icon}"
+                <pages:IconView Source="{Binding Icon}"
+                                Foreground="Red"
                        Margin="5"
                        HeightRequest="45"/>
                 <Label Grid.Column="1"

@@ -8,12 +8,12 @@ namespace BodyControlApp.Database
 {
     interface IReadContext
     {
-        public Task<Table> ReadSingle<Table>(Func<Table, bool> predicate) where Table : ITable;
+         Task<Table> ReadSingle<Table>(Func<Table, bool> predicate) where Table : ITable;
 
-        public Task<IList<Table>> ReadMultiple<Table>(Func<Table, bool> predicate) where Table : ITable;
+         Task<IList<Table>> ReadMultiple<Table>(Func<Table, bool> predicate) where Table : ITable;
 
-        public Task<bool> DeleteSingle<Table>(object value) where Table : ITable;
+         Task<bool> DeleteSingle<Table>(object value) where Table : ITable;
 
-        public Task<bool> DeleteMultiple<Table>(IList<Table> list) where Table : ITable;
+         Task<bool> DeleteMultiple<Table>(IList<Table> list) where Table : ITable;
     }
 }

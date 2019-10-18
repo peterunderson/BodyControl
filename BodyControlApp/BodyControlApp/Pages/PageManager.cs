@@ -33,7 +33,7 @@ namespace BodyControlApp.Pages
             ShellSection shellSection = new ShellSection
             {
                 Title = flyoutItemAttribute.FlyoutName,
-                Icon = flyoutItemAttribute.FlyoutIcon,
+                Icon =  flyoutItemAttribute.FlyoutIcon,
             };
             shellSection.Items.Add(new ShellContent() { Content = page });
             _shellItems.Add(flyoutItemAttribute.FlyoutItemPosition, shellSection);

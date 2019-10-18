@@ -27,7 +27,7 @@ namespace BodyControlApp
                 bool isValid = args.NewTextValue.ToCharArray().All(x => char.IsDigit(x) || x == '.' || x == ',');
                 if (args.NewTextValue.ToCharArray().Count(x=>x=='.'||x==',')>1)                
                     isValid = false;                
-                if (args.NewTextValue.StartsWith(',') || args.NewTextValue.StartsWith('.'))                
+                if (args.NewTextValue.StartsWith(",") || args.NewTextValue.StartsWith("."))                
                     isValid = false;                
                 ((Entry)sender).Text = isValid ? args.NewTextValue : args.NewTextValue.Remove(args.NewTextValue.Length - 1);
             }

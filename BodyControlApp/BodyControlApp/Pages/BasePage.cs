@@ -17,6 +17,7 @@ namespace BodyControlApp.Pages
         public BasePage()
         {
             SetDynamicResource(View.BackgroundColorProperty, "PageBackgroundColor");
+
             Image image = new Image();
             image.SetBinding(Image.SourceProperty,"NavBarImage");
             image.HeightRequest = 30;
