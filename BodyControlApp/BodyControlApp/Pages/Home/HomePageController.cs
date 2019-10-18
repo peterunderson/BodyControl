@@ -11,7 +11,7 @@ using BodyControlApp.Database;
 
 namespace BodyControlApp.Pages.Home
 {
-    [PageConfig("Home","Home.png","HomeWhite.png",0)]
+    [PageConfig("Home","Home.png",0)]
     class HomePageController:IPageController
     {
         private  HomePage _homePage;

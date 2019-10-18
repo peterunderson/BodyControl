@@ -51,7 +51,7 @@ namespace BodyControlApp.Pages
                                                               && p.Name.Contains("Page") && p.BaseType == typeof(BasePage));
                 PageConfigAttribute attribute = pageControllers.ElementAt(i).GetCustomAttribute<PageConfigAttribute>();
                 if (attribute == null)
-                    attribute = new PageConfigAttribute("","","",0);
+                    attribute = new PageConfigAttribute("","",0);
                 Type viewModelType = assemblyTypes.FirstOrDefault(p => p.Namespace == pageControllers.ElementAt(i).Namespace
                                                                        && p.Name.Contains("ViewModel") && p.BaseType == typeof(BaseViewModel));
                 if (page != null && viewModelType != null)
@@ -67,7 +67,7 @@ namespace BodyControlApp.Pages
             ContentPage currPage = (BasePage) Activator.CreateInstance(page);
             currPage.Appearing += CurrPage_Appearing;
             var viewModel = (BaseViewModel) Activator.CreateInstance(viewModelType);
-            viewModel.NavBarImage = attribute.NavBarImage;
+            viewModel.NavBarImage = attribute.FlyoutIcon;
             viewModel.NavBarText = attribute.FlyoutName;
             currPage.BindingContext = viewModel;
             try

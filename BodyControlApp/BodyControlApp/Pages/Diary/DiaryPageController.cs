@@ -6,7 +6,7 @@ using BodyControlApp.Database;
 
 namespace BodyControlApp.Pages.Diary
 {
-    [PageConfig("Tagebuch", "Book.png","BookWhite.png", 2)]
+    [PageConfig("Tagebuch", "Book.png", 2)]
     class DiaryPageController : IPageController
     {
         public DiaryPageController(DiaryPage diaryPage)

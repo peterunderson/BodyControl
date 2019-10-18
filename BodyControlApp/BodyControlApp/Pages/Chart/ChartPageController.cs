@@ -10,7 +10,7 @@ using BodyControlApp.Database;
 
 namespace BodyControlApp.Pages.Chart
 {
-    [PageConfig("Chart", "Chart.png","ChartWhite.png", 1)]
+    [PageConfig("Chart", "Chart.png", 1)]
     class ChartPageController : IPageController
     {
         private readonly ChartPage _chartPage;

@@ -6,7 +6,7 @@ using BodyControlApp.Database;
 
 namespace BodyControlApp.Pages.Training
 {
-    [PageConfig("Training", "Dumbell.png","DumbellWhite.png", 3)]
+    [PageConfig("Training", "Dumbell.png", 3)]
     class TrainingPageController : IPageController
     {
         public TrainingPageController(TrainingPage trainingPage)

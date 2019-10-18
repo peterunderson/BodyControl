@@ -17,15 +17,17 @@ namespace BodyControlApp.Pages
         public BasePage()
         {
             SetDynamicResource(View.BackgroundColorProperty, "PageBackgroundColor");
-
-            Image image = new Image();
-            image.SetBinding(Image.SourceProperty,"NavBarImage");
+       
+            IconView image = new IconView();
+            image.SetBinding(IconView.SourceProperty,"NavBarImage");
+            image.SetDynamicResource(IconView.ForegroundProperty, "NavBarSecondaryColor");
             image.HeightRequest = 30;
             image.WidthRequest = 30;
             image.VerticalOptions = LayoutOptions.Center;
 
             Label label = new Label();
             label.SetBinding(Label.TextProperty,"NavBarText");
+            label.SetDynamicResource(Label.TextColorProperty, "NavBarSecondaryColor");
             label.FontSize = 20;
             label.TextColor = Color.White;
             label.VerticalOptions = LayoutOptions.Center;

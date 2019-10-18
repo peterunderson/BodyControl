@@ -6,7 +6,7 @@
              xmlns:pages="clr-namespace:BodyControlApp.Pages;assembly=BodyControlApp"
              mc:Ignorable="d"
        x:Class="BodyControlApp.AppShell"
-     BackgroundColor="{DynamicResource NavigationBarColor}" FlyoutBackgroundColor="{DynamicResource PageBackgroundColor}" >
+     BackgroundColor="{DynamicResource SecondaryColor}" FlyoutBackgroundColor="{DynamicResource PageBackgroundColor}" >
     <Shell.FlyoutHeaderTemplate x:DataType="local:MainViewModel">
         <DataTemplate>
             <Grid BackgroundColor="Black"
@@ -25,7 +25,7 @@
                         <VisualState x:Name="Normal" />
                         <VisualState x:Name="Selected">
                             <VisualState.Setters>
-                                <Setter Property="BackgroundColor" Value="{DynamicResource TertiaryTextColor}"/>
+                                <Setter Property="BackgroundColor" Value="Gray"/>
                             </VisualState.Setters>
                         </VisualState>
                     </VisualStateGroup>
@@ -41,7 +41,7 @@
                     <ColumnDefinition Width="0.8*" />
                 </Grid.ColumnDefinitions>
                 <pages:IconView Source="{Binding Icon}"
-                                Foreground="Red"
+                                Foreground="{DynamicResource SecondaryColor}"
                        Margin="5"
                        HeightRequest="45"/>
                 <Label Grid.Column="1"

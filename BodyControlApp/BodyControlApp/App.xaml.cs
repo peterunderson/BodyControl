@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using BodyControlApp.Themes;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 

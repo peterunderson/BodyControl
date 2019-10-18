@@ -9,7 +9,7 @@ using Xamarin.Forms;
 
 namespace BodyControlApp.Pages.Settings
 {
-    [PageConfig("Settings", "Settings2.png","Settings2White.png", 4)]
+    [PageConfig("Settings", "Settings2.png", 4)]
     class SettingsPageController : IPageController
     {
         private readonly SettingsPage _settingsPage;
