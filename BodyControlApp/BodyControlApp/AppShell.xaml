@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
        mc:Ignorable="d"
        x:Class="BodyControlApp.AppShell"
-      >
+     BackgroundColor="{DynamicResource NavigationBarColor}" FlyoutBackgroundColor="{DynamicResource PageBackgroundColor}" >
     <Shell.FlyoutHeaderTemplate x:DataType="local:MainViewModel">
         <DataTemplate>
             <Grid BackgroundColor="Black"
@@ -24,7 +24,7 @@
                         <VisualState x:Name="Normal" />
                         <VisualState x:Name="Selected">
                             <VisualState.Setters>
-                                <Setter Property="BackgroundColor" Value="LightGray"/>
+                                <Setter Property="BackgroundColor" Value="{DynamicResource TertiaryTextColor}"/>
                             </VisualState.Setters>
                         </VisualState>
                     </VisualStateGroup>
@@ -43,6 +43,7 @@
                        Margin="5"
                        HeightRequest="45"/>
                 <Label Grid.Column="1"
+                       TextColor="{DynamicResource PrimaryTextColor}"
                        Text="{Binding Title}"
                        FontAttributes="Bold"
                        FontSize="Large"

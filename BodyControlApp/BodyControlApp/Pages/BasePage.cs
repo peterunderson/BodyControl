@@ -2,8 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using Android.App;
+using Android.Content;
+using Android.Views;
 using Xamarin.Forms;
+using Xamarin.Forms.Internals;
+using Application = Xamarin.Forms.Application;
+using View = Xamarin.Forms.View;
 
 namespace BodyControlApp.Pages
 {
@@ -11,6 +16,7 @@ namespace BodyControlApp.Pages
     {
         public BasePage()
         {
+            SetDynamicResource(View.BackgroundColorProperty, "PageBackgroundColor");
             Image image = new Image();
             image.SetBinding(Image.SourceProperty,"NavBarImage");
             image.HeightRequest = 30;

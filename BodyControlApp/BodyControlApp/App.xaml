@@ -6,6 +6,6 @@
              mc:Ignorable="d"
              x:Class="BodyControlApp.App">
     <Application.Resources>
-
+        <ResourceDictionary x:Key="ThemeResource" Source="Themes/LightTheme.xaml" />
     </Application.Resources>
 </Application>

@@ -16,6 +16,7 @@
                 <Label HeightRequest="20" Text="Vibrations aktiv: "></Label>
                 <CheckBox IsChecked="{Binding Vibrate}"></CheckBox>
             </StackLayout>
+            <Button Grid.Row="1" Command="{Binding ChangeThemeCommand}" Text="ChangeTheme"></Button>
         </Grid>       
     </ContentPage.Content>
 </pages:BasePage>
