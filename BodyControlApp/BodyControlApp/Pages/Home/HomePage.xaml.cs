@@ -1,5 +1,4 @@
-﻿using FFImageLoading.Svg.Forms;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,22 +12,14 @@ namespace BodyControlApp.Pages.Home
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class HomePage : BasePage
     {
-        public event EventHandler ContentViewTapped;
+        
         public HomePage()
         {
-            InitializeComponent();            
-            TapGestureRecognizer tapGestureRecognizer = new TapGestureRecognizer();
-            tapGestureRecognizer.Tapped += (o, e) =>  OnContentViewTapped(); 
-            contentView.GestureRecognizers.Add(tapGestureRecognizer);
-            base.Disappearing += (o, e) => OnContentViewTapped();           
-            
-        }        
+            InitializeComponent();          
+          
+        }      
 
-        private void OnContentViewTapped()
-        {
-            this.entry.Unfocus();
-            ContentViewTapped?.Invoke(this, EventArgs.Empty);
-        }
+      
  
     }
 }

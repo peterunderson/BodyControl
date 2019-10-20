@@ -14,6 +14,7 @@ namespace BodyControlApp
 
         public App()
         {
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MTU5NzA5QDMxMzcyZTMzMmUzMFcxOS9DMmtXbzd3elFzc2lCcCtUWWI0aXBEZE9XSjJlMEtKK0M1Y0h1QmM9");
             InitializeComponent();
             new ServiceProvider(this);
             MainPage = new AppShell();

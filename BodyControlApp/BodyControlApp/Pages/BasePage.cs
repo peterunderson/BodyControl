@@ -38,6 +38,7 @@ namespace BodyControlApp.Pages
             stack.Orientation = StackOrientation.Horizontal;
 
             Shell.SetTitleView(this, stack);
+
         }
     }
 }

@@ -9,24 +9,24 @@ namespace BodyControlApp.Pages.Home
 {
     class HomePageViewModel : BaseViewModel
     {
-        private ImageSource _penImageSource;
-        public ImageSource PenImageSource
+        private Image _penImage;
+        public Image PenImage
         {
-            get => _penImageSource;
+            get => _penImage;
             set
             {
-                _penImageSource = value;
+                _penImage = value;
                 OnPropertyChanged();
             }
         }
 
-        private bool _contentViewIsVisible;
-        public bool ContentViewIsVisible
+        private bool _popupIsOpen;
+        public bool PopupIsOpen
         {
-            get => _contentViewIsVisible;
+            get => _popupIsOpen;
             set
             {
-                _contentViewIsVisible = value;
+                _popupIsOpen = value;
                 OnPropertyChanged();
             }
         }
@@ -41,6 +41,29 @@ namespace BodyControlApp.Pages.Home
                 OnPropertyChanged();
             }
         }
-       
+
+        private ICommand _buttonSaveCommand;
+        public ICommand ButtonSaveCommand
+        {
+            get => _buttonSaveCommand;
+            set
+            {
+                _buttonSaveCommand = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private double _weigthInputValue;
+        public double WeigthInputValue
+        {
+            get => _weigthInputValue;
+            set
+            {
+                _weigthInputValue = value;
+                OnPropertyChanged();
+            }
+        }
+
+
     }
 }

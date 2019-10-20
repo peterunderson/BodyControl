@@ -7,45 +7,54 @@
              x:Class="BodyControlApp.Pages.Home.HomePage"
              xmlns:root="clr-namespace:BodyControlApp"
              xmlns:local="clr-namespace:BodyControlApp.Pages.Home"
-             xmlns:svg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             xmlns:sfPopup="clr-namespace:Syncfusion.XForms.PopupLayout;assembly=Syncfusion.SfPopupLayout.XForms"
              xmlns:pages="clr-namespace:BodyControlApp.Pages;assembly=BodyControlApp"
+             xmlns:sfTextBox="clr-namespace:Syncfusion.SfNumericTextBox.XForms;assembly=Syncfusion.SfNumericTextBox.XForms"
              x:DataType="local:HomePageViewModel">
-    <ContentPage.Content>
-        <AbsoluteLayout Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-            <Grid AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" >
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="50"></RowDefinition>
-                    <RowDefinition Height="*"></RowDefinition>
-                </Grid.RowDefinitions>
-                <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Orientation="Horizontal">
-                    <Label VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="Medium"  HeightRequest="20" Text="Gewicht aktuell: "></Label>
-                    <Entry  MaxLength="6" Placeholder="Weight" Keyboard="Telephone" >
-                        <Entry.Behaviors>
-                            <root:NumericValidationBehaviour></root:NumericValidationBehaviour>
-                        </Entry.Behaviors>
-                    </Entry>
-                </StackLayout>
 
-                <Button Command="{Binding ButtonPenCommand}" ImageSource="{Binding PenImageSource}" x:Name="button" Grid.Row="1" VerticalOptions="End" HorizontalOptions="End" Margin="10" WidthRequest="70" HeightRequest="70" CornerRadius="35" BackgroundColor="LightGray"></Button>
-            </Grid>
+    <sfPopup:SfPopupLayout IsOpen="{Binding PopupIsOpen}">
+        <sfPopup:SfPopupLayout.PopupView>
+            <sfPopup:PopupView AcceptCommand="{Binding ButtonSaveCommand}" AcceptButtonText="Save" HeightRequest="100" ShowHeader="False">
+                <sfPopup:PopupView.ContentTemplate>
+                    <DataTemplate>
+                        <sfTextBox:SfNumericTextBox Value="{Binding WeigthInputValue}" BorderColor="Blue" MaximumNumberDecimalDigits="2" Maximum="200" ParserMode="Double" ></sfTextBox:SfNumericTextBox>
+                    </DataTemplate>
+                </sfPopup:PopupView.ContentTemplate>
+            </sfPopup:PopupView>
+        </sfPopup:SfPopupLayout.PopupView>
+        <sfPopup:SfPopupLayout.Content>
+            <AbsoluteLayout>
+                <ScrollView AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,1,1,1" VerticalOptions="FillAndExpand">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="200"></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
 
-            <ContentView  BackgroundColor="#C0808080" Padding="10,0" IsVisible="{Binding ContentViewIsVisible}" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
-                <Grid >
-                    <Grid x:Name="contentView" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"></Grid>
-                    <StackLayout  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-                        <StackLayout Orientation="Vertical" HeightRequest="200" WidthRequest="300" BackgroundColor="White">
-                            <Entry Keyboard="Telephone" x:Name="entry" Margin="20,20,20,10" Placeholder="Gewicht">
-                                <Entry.Behaviors>
-                                    <root:NumericValidationBehaviour></root:NumericValidationBehaviour>
-                                </Entry.Behaviors>
-                            </Entry>
-                            <Button Margin="20,0,20,0" Text="Save"></Button>
-                        </StackLayout>
-                    </StackLayout>
-                </Grid>                
-            </ContentView>
-        </AbsoluteLayout>
+                        <Grid Margin="10" Grid.Row="0">
+                            <BoxView  BackgroundColor="{DynamicResource BoxViewColor}"></BoxView>
+                            <Label  VerticalOptions="Start" HorizontalOptions="Start" Text="Tagesauswertung" Margin="5" FontSize="10" FontAttributes="Bold"></Label>
+                        </Grid>
+                        
+                        <BoxView Grid.Row="1" HeightRequest="200" Margin="10,0,10,10" BackgroundColor="{DynamicResource BoxViewColor}"></BoxView>
+                        <BoxView Grid.Row="2" HeightRequest="200" Margin="10,0,10,10" BackgroundColor="{DynamicResource BoxViewColor}"></BoxView>
 
-    </ContentPage.Content>
+                        
+                    </Grid>
+                </ScrollView>
+                <Button IsEnabled="False" Margin="5" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="1.0,1.0,-1,-1" 
+                                    VerticalOptions="End" HorizontalOptions="End" WidthRequest="60" HeightRequest="60" CornerRadius="30" BackgroundColor="{DynamicResource SecondaryColor}"></Button>
+                <pages:IconView Margin="10" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="1.0,1.0,-1,-1" 
+                               Foreground="White" VerticalOptions="End" HorizontalOptions="End" WidthRequest="50" HeightRequest="50" Source="PenSmall.png">
+                    <pages:IconView.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ButtonPenCommand}"></TapGestureRecognizer>
+                    </pages:IconView.GestureRecognizers>
+                </pages:IconView>
+              
+            </AbsoluteLayout>
+           
+        </sfPopup:SfPopupLayout.Content>
+    </sfPopup:SfPopupLayout>
 
 </pages:BasePage>

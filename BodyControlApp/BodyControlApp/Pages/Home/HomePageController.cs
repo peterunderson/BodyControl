@@ -1,5 +1,4 @@
-﻿using FFImageLoading.Svg.Forms;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,19 +19,11 @@ namespace BodyControlApp.Pages.Home
         public HomePageController(HomePage _homePage)
         {
             this._homePage = _homePage;
-            _homePage.ContentViewTapped += _homePage_ContentViewTapped;
-        }
-
-        private void _homePage_ContentViewTapped(object sender, EventArgs e)
-        {
-
-            _homePageViewModel.ContentViewIsVisible = false;
         }
 
         private void ButtonPenClicked(object obj)
         {
-            _homePageViewModel.ContentViewIsVisible = true;
-            
+            _homePageViewModel.PopupIsOpen = true;
         }
 
         public async Task<bool> LoadDataAsync(DataBaseController controller)
@@ -45,8 +36,13 @@ namespace BodyControlApp.Pages.Home
         {
             _homePageViewModel = viewModel as HomePageViewModel;
             _homePageViewModel.ButtonPenCommand = new DelegateCommand(ButtonPenClicked);
-            _homePageViewModel.PenImageSource = ImageSource.FromFile("PenSmall.png");
-            _homePageViewModel.ContentViewIsVisible = false;
+            _homePageViewModel.ButtonSaveCommand = new DelegateCommand(ButtonSave);
+        }
+
+        private void ButtonSave(object obj)
+        {
+            var erigth = _homePageViewModel.WeigthInputValue;
+            _homePageViewModel.PopupIsOpen = false;
         }
     }
 }

@@ -4,8 +4,6 @@ using System.Text;
 using BodyControlApp.Pages;
 using Xamarin.Forms;
 using System.Xml.Linq;
-using FFImageLoading.Forms;
-using FFImageLoading.Svg.Forms;
 using BodyControlApp.Pages.Settings;
 using BodyControlApp.Database;
 

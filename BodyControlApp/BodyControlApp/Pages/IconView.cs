@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Windows.Input;
 using BodyControlApp.Themes;
 using Xamarin.Forms;
 using Xamarin.Forms.Internals;
@@ -12,7 +13,7 @@ namespace BodyControlApp.Pages
 
 		public static readonly BindableProperty ForegroundProperty = BindableProperty.Create(nameof(Foreground), typeof(object), typeof(IconView), default(Color));
 
-		public object Foreground { 
+		public Color Foreground { 
 			get
             {              
                 return (Color)GetValue (ForegroundProperty); 
