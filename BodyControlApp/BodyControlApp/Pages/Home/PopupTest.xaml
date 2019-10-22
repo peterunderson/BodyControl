@@ -10,7 +10,7 @@
       <StackLayout>
           <DatePicker></DatePicker>
           <Label Text="Gewicht"></Label>
-          <sfTextBox:SfNumericTextBox HeightRequest="50" WidthRequest="60" ParserMode="Double" BorderColor="{DynamicResource SecondaryColor}" Value="{Binding WeigthInputValue}"></sfTextBox:SfNumericTextBox>
+          <sfTextBox:SfNumericTextBox FormatString="Kg" HeightRequest="50" WidthRequest="60" ParserMode="Double" BorderColor="{DynamicResource SecondaryColor}" Value="{Binding WeigthInputValue}"></sfTextBox:SfNumericTextBox>
         </StackLayout>
     
   </ContentView.Content>
