@@ -10,9 +10,8 @@
     <PackageReference Include="Syncfusion.Xamarin.Core" Version="17.3.0.17" />
     <PackageReference Include="Syncfusion.Xamarin.SfNumericTextBox" Version="17.3.0.17" />
     <PackageReference Include="Syncfusion.Xamarin.SfPopupLayout" Version="17.3.0.17" />
-    <PackageReference Include="Syncfusion.Xamarin.SfPullToRefresh" Version="17.3.0.17" />
     <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
-    <PackageReference Include="Xamarin.Forms" Version="4.2.0.848062" />
+    <PackageReference Include="Xamarin.Forms" Version="4.3.0.908675" />
   </ItemGroup>
 
   <ItemGroup>
@@ -33,6 +32,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Pages\Home\HomePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Home\PopupTest.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Pages\Settings\SettingsPage.xaml">

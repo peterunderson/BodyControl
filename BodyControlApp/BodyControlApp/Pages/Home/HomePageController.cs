@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Android.App;
 using Android.Views.InputMethods;
 using BodyControlApp.MVVM;
 using BodyControlApp.Database;
+using Syncfusion.SfNumericTextBox.XForms;
 
 namespace BodyControlApp.Pages.Home
 {
@@ -37,6 +39,20 @@ namespace BodyControlApp.Pages.Home
             _homePageViewModel = viewModel as HomePageViewModel;
             _homePageViewModel.ButtonPenCommand = new DelegateCommand(ButtonPenClicked);
             _homePageViewModel.ButtonSaveCommand = new DelegateCommand(ButtonSave);
+            _homePageViewModel.RefreshCommand = new DelegateCommand(Refresh);
+            _homePageViewModel.PopupContentTemplate = new DataTemplate(()=>new PopupTest());
+           _homePageViewModel.PopupHeight = 200;
+           _homePageViewModel.PopupWidth = 200;
+        }
+
+        private void Refresh(object obj)
+        {
+            Thread th = new Thread(() =>
+            {
+                Thread.Sleep(5000);
+                _homePageViewModel.IsRefreshing = false;
+            });
+            th.Start();
         }
 
         private void ButtonSave(object obj)

@@ -53,6 +53,28 @@ namespace BodyControlApp.Pages.Home
             }
         }
 
+        private ICommand _refreshCommand;
+        public ICommand RefreshCommand
+        {
+            get => _refreshCommand;
+            set
+            {
+                _refreshCommand = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _isRefreshing;
+        public bool IsRefreshing
+        {
+            get => _isRefreshing;
+            set
+            {
+                _isRefreshing = value;
+                OnPropertyChanged();
+            }
+        }
+
         private double _weigthInputValue;
         public double WeigthInputValue
         {
@@ -64,6 +86,37 @@ namespace BodyControlApp.Pages.Home
             }
         }
 
+        private DataTemplate _popupContentTemplate;
+        public DataTemplate PopupContentTemplate
+        {
+            get => _popupContentTemplate;
+            set
+            {
+                _popupContentTemplate = value;
+                OnPropertyChanged();
+            }
+        }
 
+        private int _popupWidth;
+        public int PopupWidth
+        {
+            get => _popupWidth;
+            set
+            {
+                _popupWidth = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private int _popupHeight;
+        public int PopupHeight
+        {
+            get => _popupHeight;
+            set
+            {
+                _popupHeight = value;
+                OnPropertyChanged();
+            }
+        }
     }
 }

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:sfTextBox="clr-namespace:Syncfusion.SfNumericTextBox.XForms;assembly=Syncfusion.SfNumericTextBox.XForms"
+             x:Class="BodyControlApp.Pages.Home.PopupTest">
+  <ContentView.Content>
+      <StackLayout>
+          <DatePicker></DatePicker>
+          <Label Text="Gewicht"></Label>
+          <sfTextBox:SfNumericTextBox HeightRequest="50" WidthRequest="60" ParserMode="Double" BorderColor="{DynamicResource SecondaryColor}" Value="{Binding WeigthInputValue}"></sfTextBox:SfNumericTextBox>
+        </StackLayout>
+    
+  </ContentView.Content>
+</ContentView>
