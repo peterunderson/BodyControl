@@ -19,7 +19,9 @@
                 <CheckBox IsChecked="{Binding Vibrate}"></CheckBox>
             </StackLayout>
             <Button TextColor="{DynamicResource PrimaryColor}" HeightRequest="50" WidthRequest="40" Text="Theme wechseln" BackgroundColor="{DynamicResource SecondaryColor}" Grid.Row="1" Command="{Binding ChangeThemeCommand}"></Button>
-            <sfPicker:SfPicker BackgroundColor="{DynamicResource BoxViewColor}" HeaderBackgroundColor="{DynamicResource SecondaryColor}" Grid.Row="1" PickerWidth="250" PickerMode="Dialog" IsOpen="{Binding PickerIsOpen,Mode=TwoWay}" ShowFooter="False" SelectedItemFontSize="30" HeaderText="Theme wechseln" ShowColumnHeader="False"  ItemsSource="{Binding PickerItemSource}" >
+            <sfPicker:SfPicker BackgroundColor="{DynamicResource BoxViewColor}" HeaderBackgroundColor="{DynamicResource SecondaryColor}" Grid.Row="1" PickerWidth="250" 
+                               PickerMode="Dialog" IsOpen="{Binding PickerIsOpen,Mode=TwoWay}" ShowFooter="False" SelectedItemFontSize="30" HeaderText="Theme wechseln" 
+                               ShowColumnHeader="False"  ItemsSource="{Binding PickerItemSource}" SelectedItem="{Binding PickerCurrentItem}">
                 <sfPicker:SfPicker.Behaviors>
                     <mvvm:EventToCommandBehavior EventName="SelectionChanged" Command="{Binding PickerSelectionChangedCommand}"></mvvm:EventToCommandBehavior>
                 </sfPicker:SfPicker.Behaviors>

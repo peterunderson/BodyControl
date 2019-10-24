@@ -8,7 +8,7 @@
              x:Class="BodyControlApp.Pages.Home.PopupTest">
   <ContentView.Content>
       <StackLayout>
-          <DatePicker></DatePicker>
+            <DatePicker TextColor="{DynamicResource SecondaryColor}"></DatePicker>
           <Label Text="Gewicht"></Label>
           <sfTextBox:SfNumericTextBox FormatString="Kg" HeightRequest="50" WidthRequest="60" ParserMode="Double" BorderColor="{DynamicResource SecondaryColor}" Value="{Binding WeigthInputValue}"></sfTextBox:SfNumericTextBox>
         </StackLayout>

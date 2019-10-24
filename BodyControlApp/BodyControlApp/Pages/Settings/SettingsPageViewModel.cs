@@ -55,6 +55,18 @@ namespace BodyControlApp.Pages.Settings
             }
         }
 
+        private string _pickerCurrentItem;
+
+        public string PickerCurrentItem
+        {
+            get => _pickerCurrentItem;
+            set
+            {
+                _pickerCurrentItem = value;
+                OnPropertyChanged();
+            }
+        }
+
         private bool _pickerIsOpen;
 
         public bool PickerIsOpen

@@ -16,7 +16,7 @@ namespace BodyControlApp.Pages.Settings
         DarkTheme
     }
 
-    [PageConfig("Settings", "Settings2.png", 4)]
+    [PageConfig("Settings", "Settings2.png", 5)]
     class SettingsPageController : IPageController
     {
         private SettingsPageViewModel _viewModel;
@@ -69,12 +69,12 @@ namespace BodyControlApp.Pages.Settings
                     LoadTheme();
                 }
             }
-            
         }
 
         private void ChangeTheme(object obj)
         {
             _viewModel.PickerItemSource = new ObservableCollection<string>() { nameof(LightTheme), nameof(DarkTheme) };
+            _viewModel.PickerCurrentItem = AppSettings.ActiveTheme;
             _viewModel.PickerIsOpen = true;
             //ICollection<ResourceDictionary> mergedDictionaries = Application.Current.Resources.MergedDictionaries;
             //if (mergedDictionaries != null)
