@@ -23,6 +23,10 @@ namespace BodyControlApp
                 app.Resume += App_Resume;
                 Current = this;
             }
+            else
+            {
+                throw new NotSupportedException("Current ServiceProveider already exists");
+            }
         }
 
         private void AppShell_BackButton(object sender, Pages.BackButtonEventArgs e)
