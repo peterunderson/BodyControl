@@ -15,9 +15,11 @@ namespace BodyControlApp
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AppShell : Shell
-    {       
-        public AppShell()
+    {
+        public event EventHandler<BackButtonEventArgs> BackButton; 
+        public AppShell(App app)
         {
+            new ServiceProvider(app,this);
             var manager = new PageManager(this);
             manager.InitializePageSystem();
             InitializeComponent();
@@ -25,6 +27,26 @@ namespace BodyControlApp
             // TabIndex = 3;
             //var list =  Items;
             // CurrentItem = list[1]; 
+        }
+
+        protected override bool OnBackButtonPressed()
+        {
+           var args = new BackButtonEventArgs();
+           OnBackButton(args);
+           if (args.Cancel)
+           {
+               base.OnBackButtonPressed();
+               return true;
+           }
+           else
+           {
+               return false;
+           }
+        }
+
+        protected virtual void OnBackButton(BackButtonEventArgs e)
+        {
+            BackButton?.Invoke(this, e);
         }
     }
 }

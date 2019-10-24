@@ -27,6 +27,16 @@ namespace BodyControlApp.Pages.Settings
         {
             this._settingsPage = settingsPage;
             LoadTheme();
+            ServiceProvider.Current.OnBackButton += Current_OnBackButton;
+        }
+
+        private void Current_OnBackButton(object sender, BackButtonEventArgs e)
+        {
+            if (_viewModel.PickerIsOpen)
+            {
+                _viewModel.PickerIsOpen = false;
+                e.Cancel = true;
+            }
         }
 
         private void LoadTheme()

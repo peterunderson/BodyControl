@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using BodyControlApp.Pages;
 
 namespace BodyControlApp
 {
@@ -9,19 +10,26 @@ namespace BodyControlApp
         public event EventHandler OnStart;
         public event EventHandler OnSleep;
         public event EventHandler OnResume;
-
+        public event EventHandler<BackButtonEventArgs> OnBackButton; 
         public static ServiceProvider Current;
 
-        public ServiceProvider(App app)
+        public ServiceProvider(App app,AppShell appShell)
         {
             if (Current == null)
             {
+                appShell.BackButton += AppShell_BackButton;
                 app.Start += App_Start;
                 app.Sleep += App_Sleep;
                 app.Resume += App_Resume;
                 Current = this;
             }
         }
+
+        private void AppShell_BackButton(object sender, Pages.BackButtonEventArgs e)
+        {
+           OnOnBackButton(e);
+        }
+
         private void App_Resume(object sender, EventArgs e)
         {
             OnOnResume();
@@ -50,6 +58,11 @@ namespace BodyControlApp
         private void OnOnSleep()
         {
             OnSleep?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void OnOnBackButton(BackButtonEventArgs e)
+        {
+            OnBackButton?.Invoke(this, e);
         }
     }
 }
