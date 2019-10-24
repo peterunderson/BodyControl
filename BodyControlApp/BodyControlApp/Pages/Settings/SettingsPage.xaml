@@ -18,7 +18,11 @@
                 <Label HeightRequest="20" Text="Vibrations aktiv: "></Label>
                 <CheckBox IsChecked="{Binding Vibrate}"></CheckBox>
             </StackLayout>
-            <Button TextColor="{DynamicResource PrimaryColor}" HeightRequest="50" WidthRequest="40" Text="Theme wechseln" BackgroundColor="{DynamicResource SecondaryColor}" Grid.Row="1" Command="{Binding ChangeThemeCommand}"></Button>
+            <StackLayout Margin="0,0,15,0" HorizontalOptions="End" WidthRequest="100" Grid.Row="1">
+                <Button CornerRadius="10" TextColor="{DynamicResource PrimaryColor}" HeightRequest="50" WidthRequest="40" Text="Theme wechseln"
+                        BackgroundColor="{DynamicResource SecondaryColor}"  Command="{Binding ChangeThemeCommand}"></Button>
+            </StackLayout>
+           
             <sfPicker:SfPicker BackgroundColor="{DynamicResource BoxViewColor}" HeaderBackgroundColor="{DynamicResource SecondaryColor}" Grid.Row="1" PickerWidth="250" 
                                PickerMode="Dialog" IsOpen="{Binding PickerIsOpen,Mode=TwoWay}" ShowFooter="False" SelectedItemFontSize="30" HeaderText="Theme wechseln" 
                                ShowColumnHeader="False"  ItemsSource="{Binding PickerItemSource}" SelectedItem="{Binding PickerCurrentItem}">

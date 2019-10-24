@@ -25,6 +25,9 @@ namespace BodyControlApp.Pages.Home
 
         private void ButtonPenClicked(object obj)
         {
+            _homePageViewModel.PopupContentTemplate = new DataTemplate(() => new PopupTest());
+            _homePageViewModel.PopupHeight = 200;
+            _homePageViewModel.PopupWidth = 200;
             _homePageViewModel.PopupIsOpen = true;
         }
 
@@ -39,9 +42,6 @@ namespace BodyControlApp.Pages.Home
             _homePageViewModel.ButtonPenCommand = new DelegateCommand(ButtonPenClicked);
             _homePageViewModel.ButtonSaveCommand = new DelegateCommand(ButtonSave);
             _homePageViewModel.RefreshCommand = new DelegateCommand(Refresh);
-            _homePageViewModel.PopupContentTemplate = new DataTemplate(()=>new PopupTest());
-           _homePageViewModel.PopupHeight = 200;
-           _homePageViewModel.PopupWidth = 200;
         }
 
         private void Refresh(object obj)
