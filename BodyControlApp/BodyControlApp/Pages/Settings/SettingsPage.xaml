@@ -5,18 +5,25 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:pages="clr-namespace:BodyControlApp.Pages;assembly=BodyControlApp"
              mc:Ignorable="d"
+             xmlns:sfPicker="clr-namespace:Syncfusion.SfPicker.XForms;assembly=Syncfusion.SfPicker.XForms"
+             xmlns:mvvm="clr-namespace:BodyControlApp.MVVM;assembly=BodyControlApp"
              x:Class="BodyControlApp.Pages.Settings.SettingsPage">
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"></RowDefinition>
-                <RowDefinition></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
             </Grid.RowDefinitions>
             <StackLayout Margin="10" Grid.Row="0" HeightRequest="20" Orientation="Horizontal">
                 <Label HeightRequest="20" Text="Vibrations aktiv: "></Label>
                 <CheckBox IsChecked="{Binding Vibrate}"></CheckBox>
             </StackLayout>
-            <Button Grid.Row="1" Command="{Binding ChangeThemeCommand}" Text="ChangeTheme"></Button>
+            <Button TextColor="{DynamicResource PrimaryColor}" HeightRequest="50" WidthRequest="40" Text="Theme wechseln" BackgroundColor="{DynamicResource SecondaryColor}" Grid.Row="1" Command="{Binding ChangeThemeCommand}"></Button>
+            <sfPicker:SfPicker BackgroundColor="{DynamicResource BoxViewColor}" HeaderBackgroundColor="{DynamicResource SecondaryColor}" Grid.Row="1" PickerWidth="250" PickerMode="Dialog" IsOpen="{Binding PickerIsOpen,Mode=TwoWay}" ShowFooter="False" SelectedItemFontSize="30" HeaderText="Theme wechseln" ShowColumnHeader="False"  ItemsSource="{Binding PickerItemSource}" >
+                <sfPicker:SfPicker.Behaviors>
+                    <mvvm:EventToCommandBehavior EventName="SelectionChanged" Command="{Binding PickerSelectionChangedCommand}"></mvvm:EventToCommandBehavior>
+                </sfPicker:SfPicker.Behaviors>
+            </sfPicker:SfPicker>
         </Grid>       
     </ContentPage.Content>
 </pages:BasePage>

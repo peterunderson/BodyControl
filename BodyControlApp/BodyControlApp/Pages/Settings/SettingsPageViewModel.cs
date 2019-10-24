@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Text;
 using System.Windows.Input;
@@ -26,6 +27,42 @@ namespace BodyControlApp.Pages.Settings
             set
             {
                 _changeThemeCommand = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private ICommand _pickerSelectionChangedCommand;
+
+        public ICommand PickerSelectionChangedCommand
+        {
+            get => _pickerSelectionChangedCommand;
+            set
+            {
+                _pickerSelectionChangedCommand = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private ObservableCollection<string> _pickerItemSource;
+
+        public ObservableCollection<string> PickerItemSource
+        {
+            get => _pickerItemSource;
+            set
+            {
+                _pickerItemSource = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _pickerIsOpen;
+
+        public bool PickerIsOpen
+        {
+            get => _pickerIsOpen;
+            set
+            {
+                _pickerIsOpen = value;
                 OnPropertyChanged();
             }
         }

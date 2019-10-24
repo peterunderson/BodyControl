@@ -20,6 +20,19 @@ namespace BodyControlApp.Pages.Settings
             }
         }
 
+        public static string ActiveTheme
+        {
+            get
+            {
+                return Preferences.Get("ActiveTheme","LightTheme");
+            }
+            set
+            {
+                Vibration.Vibrate(100);
+                Preferences.Set("ActiveTheme", value);
+            }
+        }
+
         public static void ClearSettings()
         {
             Preferences.Clear();
