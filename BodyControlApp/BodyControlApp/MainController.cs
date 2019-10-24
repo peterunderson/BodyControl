@@ -35,7 +35,7 @@ namespace BodyControlApp
         {
             try
             {
-                await _pageManager.FillPages(_databaseController);
+                await _pageManager.LoadDataAsync(_databaseController);
             }
             catch (Exception ex)
             {
@@ -47,7 +47,7 @@ namespace BodyControlApp
         {
             if (AppSettings.Vibrate)
             {
-                Xamarin.Essentials.Vibration.Vibrate(200);
+                Xamarin.Essentials.Vibration.Vibrate(100);
             }
             _appShell.FlyoutIsPresented = true;
             _appShell.FlyoutIsPresented = false;

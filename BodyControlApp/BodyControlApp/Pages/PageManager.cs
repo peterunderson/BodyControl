@@ -103,7 +103,7 @@ namespace BodyControlApp.Pages
             _appShell.CurrentItem = _appShell.Items[0];
         }
 
-        public async Task FillPages(DataBaseController controller)
+        public async Task LoadDataAsync(DataBaseController controller)
         {
             _dataBaseController = controller;            
             foreach (var pageController in _pageControllers)

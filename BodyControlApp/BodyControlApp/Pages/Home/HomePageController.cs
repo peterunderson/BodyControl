@@ -30,7 +30,6 @@ namespace BodyControlApp.Pages.Home
 
         public async Task<bool> LoadDataAsync(DataBaseController controller)
         {
-            
             return true;
         }
 
