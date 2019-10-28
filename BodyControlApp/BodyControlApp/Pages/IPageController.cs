@@ -8,7 +8,7 @@ namespace BodyControlApp.Pages
 {
     interface IPageController
     {
-        Task<bool> LoadDataAsync(DataBaseController controller);
+        Task<bool> LoadDataAsync();
 
         void ExecuteInitializeViewModel(BaseViewModel viewModel);
     }

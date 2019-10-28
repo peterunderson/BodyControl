@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BodyControlApp.Database.SqLite.Tables
 {
-    class FoodTable :ITable
+    class FoodTable 
     {
         public DateTime DateTime { get; set; }
     }

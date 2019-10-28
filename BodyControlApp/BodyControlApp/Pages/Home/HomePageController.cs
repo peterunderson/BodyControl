@@ -8,6 +8,7 @@ using Android.App;
 using Android.Views.InputMethods;
 using BodyControlApp.MVVM;
 using BodyControlApp.Database;
+using BodyControlApp.Database.SqLite;
 using Syncfusion.SfNumericTextBox.XForms;
 
 namespace BodyControlApp.Pages.Home
@@ -31,7 +32,7 @@ namespace BodyControlApp.Pages.Home
             _homePageViewModel.PopupIsOpen = true;
         }
 
-        public async Task<bool> LoadDataAsync(DataBaseController controller)
+        public async Task<bool> LoadDataAsync()
         {
             return true;
         }

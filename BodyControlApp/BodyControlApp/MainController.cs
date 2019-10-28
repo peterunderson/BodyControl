@@ -13,7 +13,6 @@ namespace BodyControlApp
     {
         private readonly AppShell _appShell;
         private readonly PageManager _pageManager;
-        private readonly DataBaseController _databaseController;
 
         public MainController(AppShell appShell, PageManager pageManager)
         {
@@ -27,15 +26,13 @@ namespace BodyControlApp
             {
                 item.Appearing += Item_Appearing;
             }
-
-            _databaseController = new DataBaseController();     
         }
 
         private async void Provider_OnStart(object sender, EventArgs e)
         {
             try
             {
-                await _pageManager.LoadDataAsync(_databaseController);
+                await _pageManager.LoadDataAsync();
             }
             catch (Exception ex)
             {

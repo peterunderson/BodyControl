@@ -4,13 +4,41 @@
                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                 xmlns:pages="clr-namespace:BodyControlApp.Pages;assembly=BodyControlApp"
                 mc:Ignorable="d"
+                xmlns:sfListView="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+                xmlns:mvvm="clr-namespace:BodyControlApp.MVVM;assembly=BodyControlApp"
                 x:Class="BodyControlApp.Pages.Foods.FoodsPage">
 
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Chart Page"
-                   VerticalOptions="CenterAndExpand" 
-                   HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid x:Name="MainGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <SearchBar HeightRequest="40" Placeholder="Suche Lebensmittel" PlaceholderColor="{DynamicResource PrimaryTextColor}" TextColor="{DynamicResource PrimaryTextColor}">
+                <SearchBar.Behaviors>
+                    <mvvm:EventToCommandBehavior EventName="TextChanged" Command="{Binding SearchBarTextChangedCommand}" CommandParameter="{x:Reference MainGrid}"></mvvm:EventToCommandBehavior>
+                </SearchBar.Behaviors>
+            </SearchBar>
+            <sfListView:SfListView  AllowSwiping="True" SelectionMode="None" ItemSpacing="0,5,0,5" Grid.Row="1" ItemsSource="{Binding ListViewItemSource ,Mode=TwoWay}" ItemSize="50">
+                <sfListView:SfListView.LeftSwipeTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid BackgroundColor="Red" HorizontalOptions="Fill" VerticalOptions="Fill">
+                                <Grid HorizontalOptions="Center" VerticalOptions="Center">
+                                    <pages:IconView Source="Pen.png" Foreground="White"></pages:IconView>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                    </DataTemplate>
+                </sfListView:SfListView.LeftSwipeTemplate>
+                <sfListView:SfListView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BackgroundColor="{DynamicResource BoxViewColor}" BorderColor="{DynamicResource BoxViewColor}" Padding="2" Margin="10,0,10,0">
+                            <Label Text="{Binding name_D}" FontAttributes="Bold" TextColor="{DynamicResource PrimaryTextColor}"></Label>
+                        </Frame>
+                    </DataTemplate>
+                </sfListView:SfListView.ItemTemplate>
+            </sfListView:SfListView>
+        </Grid>
     </ContentPage.Content>
 </pages:BasePage>

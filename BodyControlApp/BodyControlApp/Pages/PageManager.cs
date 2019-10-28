@@ -18,7 +18,6 @@ namespace BodyControlApp.Pages
     {
         private readonly List<IPageController> _pageControllers;
         private readonly AppShell _appShell;
-        private DataBaseController _dataBaseController;
 
         public PageManager(AppShell appShell)
         {
@@ -103,12 +102,11 @@ namespace BodyControlApp.Pages
             _appShell.CurrentItem = _appShell.Items[0];
         }
 
-        public async Task LoadDataAsync(DataBaseController controller)
+        public async Task LoadDataAsync()
         {
-            _dataBaseController = controller;            
             foreach (var pageController in _pageControllers)
             {
-                await pageController.LoadDataAsync(controller);
+                await pageController.LoadDataAsync();
             }
         }
     }

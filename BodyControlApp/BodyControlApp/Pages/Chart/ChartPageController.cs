@@ -21,7 +21,7 @@ namespace BodyControlApp.Pages.Chart
             Xamarin.Essentials.DeviceDisplay.MainDisplayInfoChanged += DeviceDisplay_MainDisplayInfoChanged;
         }
 
-        public async Task<bool> LoadDataAsync(DataBaseController controller)
+        public async Task<bool> LoadDataAsync()
         {
             await Task.Delay(10);
             return true;

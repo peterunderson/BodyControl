@@ -56,7 +56,7 @@ namespace BodyControlApp.Pages.Settings
             }
         }
 
-        public async Task<bool> LoadDataAsync(DataBaseController controller)
+        public async Task<bool> LoadDataAsync()
         {
             await Task.Delay(10);
             return true;

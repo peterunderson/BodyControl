@@ -13,7 +13,7 @@ namespace BodyControlApp.Pages.Diary
         {
 
         }
-        public async Task<bool> LoadDataAsync(DataBaseController controller)
+        public async Task<bool> LoadDataAsync()
         {
            return true;
         }
